@@ -1,24 +1,12 @@
-//Codigo para saber cuanto tiempo tarde en ejecutar una tarea
+// Considera agregar el punto y coma al final de una linea de comando
+console.log('Hola');
+console.log('Mundo');
 
-console.time('mensaje');
+// Agrega un tab cuando agregues linea de comando dentro de una función, if, for, etc.
+function hola(){
+    console.log('ok');
+    console.log('Hola');
+    console.log('Mundo');
+}
 
-
-
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-console.warn('Eso no esta permitido');
-
-
-console.timeEnd('mensaje');
-
+hola();
