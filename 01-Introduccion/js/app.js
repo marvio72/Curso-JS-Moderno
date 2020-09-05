@@ -10,3 +10,9 @@ function hola(){
 }
 
 hola();
+
+/*
+comando desde terminal para ejecutar eslint
+eslint app.js
+eslint app.js --fix
+*/
