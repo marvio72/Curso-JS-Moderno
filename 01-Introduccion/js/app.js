@@ -1,10 +1,24 @@
-/*
-Este es un comentario multilinea
-*/
+//Codigo para saber cuanto tiempo tarde en ejecutar una tarea
 
-//Este es un comentario de una sola linea
+console.time('mensaje');
 
-const nombre = prompt('Cual es tu nombre?');
 
-document.querySelector('.contenido').innerHTML = `${nombre} está aprendiendo JavaScript Moderno`;
+
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+console.warn('Eso no esta permitido');
+
+
+console.timeEnd('mensaje');
 
