@@ -49,14 +49,12 @@ function iniciarApp(){
 // Validando el formulario
 function validarFormulario(e){
     // Borrar los errores
-    console.log(e.target.type);
+   
     if (e.target.value.length > 0) {
         quitarParrafo();
-        e.target.classList.remove('border', 'border-red-500');
-        e.target.classList.add('border', 'border-green-500');
+        validaPositivo(e.target);
     } else {
-        e.target.classList.remove('border', 'border-green-500');
-        e.target.classList.add('border', 'border-red-500');
+        validaNegativo(e.target);
         mostrarError('Todos los campos son obligatorios');
     }
     
@@ -64,11 +62,10 @@ function validarFormulario(e){
         
         if (er.test(e.target.value)) {
             quitarParrafo();
-            e.target.classList.remove('border', 'border-red-500');
-            e.target.classList.add('border', 'border-green-500');
+            validaPositivo(e.target);
+            
         } else {
-            e.target.classList.remove('border', 'border-green-500');
-            e.target.classList.add('border', 'border-red-500');
+            validaNegativo(e.target);
             mostrarError('Email no valido');
         }
     }
@@ -95,7 +92,7 @@ function mostrarError(mensaje) {
 // Enviar el email
 function enviarFormulario(e) {
     e.preventDefault();
-    console.log('enviando el email');
+    // console.log('enviando el email');
 
     // Mostrar spinner
     const spinner = document.querySelector('#spinner');
@@ -117,17 +114,14 @@ function enviarFormulario(e) {
         setTimeout(() => {
             parrafo.remove(); // Eliminar el mensaje de éxito
             resetearFormulario();
-        }, 1000);
-    }, 3000);
+        }, 3000);
+    }, 2000);
 
 }
 
 // Resetear el formulario
-function resetearFormulario() {
-
-    
+function resetearFormulario() {    
     formulario.reset();
-    
     iniciarApp();
 }
 
@@ -138,6 +132,7 @@ function quitarBorde(){
     campo.forEach(input => {
         input.classList.remove('border-green-500', 'border-red-500');
     });
+
     quitarParrafo();
     
 }
@@ -148,4 +143,16 @@ function quitarParrafo(){
     if (error) {
         error.remove();
     }
+}
+
+// Pone borde verde y quita el Rojo
+function validaPositivo(id){
+    id.classList.remove('border', 'border-red-500');
+    id.classList.add('border', 'border-green-500');
+}
+
+function validaNegativo(id) {
+    id.classList.remove('border', 'border-green-500');
+    id.classList.add('border', 'border-red-500');
+    
 }
