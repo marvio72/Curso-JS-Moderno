@@ -124,7 +124,21 @@ function filtrarAuto() {
 
     console.log(resultado);
 
-    mostrarAutos(resultado);
+    
+    if (resultado.length) {
+        mostrarAutos(resultado);
+    } else {
+        noResultado();
+    }
+}
+
+function noResultado() {
+    limpiarHTML();
+    
+    const noResudltado = document.createElement('div');
+    noResudltado.classList.add('alerta', 'error');
+    noResudltado.textContent = 'No hay resultado';
+    resultado.appendChild(noResudltado);
 }
 
 function filtrarMarca(auto){
