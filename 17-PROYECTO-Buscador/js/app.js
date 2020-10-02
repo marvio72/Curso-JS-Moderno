@@ -33,7 +33,7 @@ const datosBusqueda = {
 Eventos
 */
 document.addEventListener('DOMContentLoaded', () => {
-    mostrarAutos(); // Muestra los automoviles al cargar
+    mostrarAutos(autos); // Muestra los automoviles al cargar
 
     // Lena las opciones de años
     llenarSelect();
@@ -75,7 +75,10 @@ color.addEventListener('change', e => {
 /*
 Funciones
 */
-function mostrarAutos() {
+function mostrarAutos(autos) {
+
+    limpiarHTML(); // Elimina el html previo
+    
     autos.forEach(auto => {
         const {marca,modelo,year,puertas,transmision,precio,color} = auto;
         const autoHTML = document.createElement('p');
@@ -86,6 +89,13 @@ function mostrarAutos() {
         // insertar en el html
         resultado.appendChild(autoHTML);
     });
+}
+
+// Borrar Datos del html
+function limpiarHTML(){
+    while (resultado.firstChild) {
+        resultado.removeChild(resultado.firstChild);
+    }
 }
 
 // Generar los años del select 
@@ -103,6 +113,8 @@ function filtrarAuto() {
     const resultado = autos.filter(filtrarMarca).filter(filtrarYear)
 
     console.log(resultado);
+
+    mostrarAutos(resultado);
 }
 
 function filtrarMarca(auto){
