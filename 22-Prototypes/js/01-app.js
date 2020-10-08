@@ -13,7 +13,7 @@ console.log(cliente);
 function Cliente(nombre, saldo) {
     this.nombre = nombre;
     this.saldo = saldo;
-};
+}
 
 const marco = new Cliente('Marco', 500);
 console.log(marco);
