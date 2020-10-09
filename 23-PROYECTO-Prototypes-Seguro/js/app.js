@@ -1,3 +1,6 @@
+// Variables globales
+const formulario = document.querySelector("#cotizar-seguro");
+
 // Constructor
 function Seguro(marca,year,tipo){
     this.marca = marca;
@@ -22,6 +25,31 @@ UI.prototype.llenarOpciones = () => {
     }
 };
 
+// Muestra alertas en pantalla
+// Usamos en este un arrowfunction ya que no tenemos ningun elemento en nuestro constructor.
+UI.prototype.mostrarMensaje = (mensaje, tipo) => {
+    const div = document.createElement('div');
+
+    if (tipo === 'error') {
+        div.classList.add('error');
+    } else {
+        div.classList.add('correcto');
+    }
+
+    div.classList.add('mensaje', 'mt-10');
+    div.textContent = mensaje;
+
+    // Insertar mensaje en HTML
+    // LLamamos la variable global formulario.
+    formulario.insertBefore(div, document.querySelector('#resultado'));
+
+    setTimeout(() => {
+        div.remove(); // Borra el mensaje despues de 3 segundos
+    }, 3000);
+
+};
+
+
 // Instanciar unicodeBidi: 
 const ui = new UI();
 
@@ -33,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 eventListeners();
 
 function eventListeners() {
-    const formulario = document.querySelector("#cotizar-seguro");
+    // const formulario = document.querySelector("#cotizar-seguro");
     formulario.addEventListener('submit', cotizarSeguro);
 }
 
@@ -51,9 +79,15 @@ function cotizarSeguro(e){
     const tipo = document.querySelector('input[name="tipo"]:checked').value;
     
     if (marca === '' || year === '' || tipo === '') {
-        console.log('No paso la validación');
-    } else {
-        console.log('Si paso la validación');
-    }
+        ui.mostrarMensaje('Todos los campos son obligatorios', 'error');
+        return;
+    } 
+    
+    ui.mostrarMensaje('Cotizando...', 'exito');
+
+    // Instanciar el seguro
+
+
+    // Utilizar el prototype que va a cotizar.
     
 }
