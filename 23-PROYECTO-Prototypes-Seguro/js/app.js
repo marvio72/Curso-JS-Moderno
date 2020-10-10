@@ -147,7 +147,7 @@ UI.prototype.mostrarResultado = (total, seguro) => {
         spinner.style.display = 'none'; // Se borra el spinner
         resultadoDiv.appendChild(div); // Se muestra el resultado
     }, segundos);
-}
+};
 
 
 // Instanciar unicodeBidi: 
