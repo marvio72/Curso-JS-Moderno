@@ -3,7 +3,7 @@ const formulario = document.querySelector('#agregar-gasto');
 const gastoListado = document.querySelector('#gastos ul');
 
    /*tiempo del settimeout*/
-const tiempo = 1000;
+const tiempo = 3000;
 
 
 // Eventos
@@ -63,6 +63,41 @@ class UI {
             divMensaje.remove();
         }, tiempo);
     }
+
+    agregarGastoListado(gastos){
+        
+        this.limpiarHTML();  // Elimina html previo.
+        // Iterar sobre los gastos 
+        gastos.forEach(gasto => {
+            const {cantidad, nombre, id} = gasto;
+            
+            // Crear un LI
+            const nuevoGasto = document.createElement('li');
+            nuevoGasto.className = 'list-group-item d-flex justify-content-between align-items-center';
+            // nuevoGasto.setAttribute('data-id', id); // Esta forma es mas antigua
+            nuevoGasto.dataset.id = id; // Esta forma es nueva para las nuevas versiones de JavaScript
+
+            console.log(nuevoGasto);
+
+            // Agregar el HTML del gasto
+            nuevoGasto.innerHTML = `${nombre} <span class="badge badge-primary gadge-pill">${cantidad}</span>`;
+
+            // Boton para borrar el gasto
+            const btnBorrar = document.createElement('button');
+            btnBorrar.classList.add('btn', 'btn-danger', 'borrar-gasto');
+            btnBorrar.innerHTML = 'Borrar &times;';
+            nuevoGasto.appendChild(btnBorrar);
+
+            // Agregar al HTML
+            gastoListado.appendChild(nuevoGasto);
+        });
+    }
+
+    limpiarHTML(){
+        while (gastoListado.firstChild) {
+            gastoListado.removeChild(gastoListado.firstChild);
+        }
+    }
 }
 
 //Instanciar
@@ -76,8 +111,9 @@ function preguntarPresupuesto() {
 
     // console.log(Number(presupuestoUsuario));
 
-    if (presupuestoUsuario === '' || presupuestoUsuario <= 0 || isNaN(presupuestoUsuario  || presupuestoUsuario === null)) {
-        ui.imprimirAlerta('Ambos campos son obligatorios', 'error');
+    if (presupuestoUsuario === '' || presupuestoUsuario <= 0 || isNaN(presupuestoUsuario)  || presupuestoUsuario === null) {
+        ui.imprimirAlerta('Cantidad no aceptada', 'error');
+        window.location.reload();
     }
 
     // Presupuesto valido
@@ -110,8 +146,13 @@ function agregarGasto(e) {
     // Añade un nuevo gasto
     presupuesto.nuevoGasto(gasto);
 
-    // Mensaje de agregar gasto
+    // Mensaje de todo bien
     ui.imprimirAlerta('Gasto agregado Correctamente');
+
+    // Imprimir los gastos
+    // Solo tomamos gastos de presupuesto
+    const {gastos} = presupuesto;
+    ui.agregarGastoListado(gastos);
 
     // Reinicia el formulario
     formulario.reset();
