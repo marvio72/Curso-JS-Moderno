@@ -3,7 +3,7 @@ const formulario = document.querySelector('#agregar-gasto');
 const gastoListado = document.querySelector('#gastos ul');
 
    /*tiempo del settimeout*/
-const tiempo = 3000;
+const tiempo = 1000;
 
 
 // Eventos
@@ -108,6 +108,27 @@ class UI {
     actualizarRestante(restante){
         document.querySelector('#restante').textContent = restante;
     }
+
+    comprobarPresupuesto(presupuestoObj){
+        const {presupuesto, restante} = presupuestoObj;
+
+        const restanteDiv = document.querySelector('.restante');
+
+        // Comprobar 25%
+        if ((presupuesto / 4) > restante) {
+            restanteDiv.classList.remove('alert-success', 'alert-warning');
+            restanteDiv.classList.add('alert-danger');
+        } else if((presupuesto / 2) > restante) { // Comprobar el 50%
+            restanteDiv.classList.remove('alert-success');
+            restanteDiv.classList.add('alert-warning');
+        }
+
+        // Si el total es 0 o menor 
+        if (restante <= presupuesto) {
+            this.imprimirAlerta('Ya no hay saldo', 'error');
+            formulario.querySelector('button[type="submit"]').disabled = true;
+        }
+    }
 }
 
 //Instanciar
@@ -166,6 +187,9 @@ function agregarGasto(e) {
 
     // Actualiza la cantidad de Restante
     ui.actualizarRestante(restante);
+
+    // Comprobamos el presupuesto 
+    ui.comprobarPresupuesto(presupuesto);
 
     // Reinicia el formulario
     formulario.reset();
