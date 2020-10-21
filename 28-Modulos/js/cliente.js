@@ -26,6 +26,11 @@ class Cliente {
     }
 }
 
+// No puedes tener mas de un export default
+export default function nuevaFuncion(){
+    console.log('Este es el expor Default');
+}
+
 export {
     nombreCliente,
     ahorro,
