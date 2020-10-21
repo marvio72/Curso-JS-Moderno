@@ -16,9 +16,20 @@ function tieneSaldo(ahorro) {
 }
 
 
+class Cliente {
+    constructor(nombre, ahorro){
+        this.nombre = nombre;
+        this.ahorro = ahorro;
+    }
+    mostrarInformacion() {
+        return `Cliente: ${this.nombre} Ahorro: ${this.ahorro}`;
+    }
+}
+
 export {
     nombreCliente,
     ahorro,
     mostrarInformacion,
-    tieneSaldo
+    tieneSaldo,
+    Cliente
 }
