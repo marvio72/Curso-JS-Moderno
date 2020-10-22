@@ -1,3 +1,8 @@
+import Citas from './classes/Citas.js';
+import UI from './classes/UI.js';
+
+import { mascotaInput, propietarioInput, telefonoInput, fechaInput, horaInput, sintomasInput, formulario} from './selectores.js';
+
 const administrarCitas = new Citas();
 const ui = new UI(administrarCitas);
 
@@ -12,12 +17,12 @@ const citaObj = {
     sintomas: ''
 }
 
-function datosCita(e) {
+export function datosCita(e) {
     //  console.log(e.target.name) // Obtener el Input
      citaObj[e.target.name] = e.target.value;
 }
 
-function nuevaCita(e) {
+export function nuevaCita(e) {
     e.preventDefault();
 
     const {mascota, propietario, telefono, fecha, hora, sintomas } = citaObj;
@@ -64,7 +69,7 @@ function nuevaCita(e) {
 
 }
 
-function reiniciarObjeto() {
+export function reiniciarObjeto() {
     // Reiniciar el objeto
     citaObj.mascota = '';
     citaObj.propietario = '';
@@ -75,13 +80,13 @@ function reiniciarObjeto() {
 }
 
 
-function eliminarCita(id) {
+export function eliminarCita(id) {
     administrarCitas.eliminarCita(id);
 
     ui.imprimirCitas(administrarCitas)
 }
 
-function cargarEdicion(cita) {
+export function cargarEdicion(cita) {
 
     const {mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
 
@@ -108,10 +113,3 @@ function cargarEdicion(cita) {
 
 }
 
-export {
-    datosCita,
-    nuevaCita,
-    reiniciarObjeto,
-    eliminarCita,
-    cargarEdicion
-}
