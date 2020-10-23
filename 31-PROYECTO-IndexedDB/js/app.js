@@ -152,6 +152,7 @@ class UI {
 
                 // Añade un botón de editar...
                 const btnEditar = document.createElement('button');
+                const cita = cursor.value;
                 btnEditar.onclick = () => cargarEdicion(cita);
 
                 btnEditar.classList.add('btn', 'btn-info');
@@ -211,11 +212,29 @@ function nuevaCita(e) {
         // Estamos editando
         administrarCitas.editarCita( {...citaObj} );
 
-        ui.imprimirAlerta('Guardado Correctamente');
+        // Editar en IndexdDB
+        const transaction = DB.transaction(['citas'], 'readwrite');
+        const objectStore = transaction.objectStore('citas');
 
-        formulario.querySelector('button[type="submit"]').textContent = 'Crear Cita';
+        objectStore.put(citaObj);
 
-        editando = false;
+        transaction.oncomlete = () => {
+
+            ui.imprimirAlerta('Guardado Correctamente');
+    
+            formulario.querySelector('button[type="submit"]').textContent = 'Crear Cita';
+    
+            editando = false;
+
+        }
+
+        transaction.onerror = () => {
+            console.log('Hubo un error en la actulización de los datos');
+        }
+
+
+
+
 
     } else {
         // Nuevo Registro
