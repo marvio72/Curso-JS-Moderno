@@ -201,7 +201,8 @@ function nuevaCita(e) {
         editando = false;
 
     } else {
-        // Nuevo Registrando
+        // Nuevo Registro
+
 
         // Generar un ID único
         citaObj.id = Date.now();
@@ -209,8 +210,22 @@ function nuevaCita(e) {
         // Añade la nueva cita
         administrarCitas.agregarCita({...citaObj});
 
-        // Mostrar mensaje de que todo esta bien...
-        ui.imprimirAlerta('Se agregó correctamente')
+        // Insertar Registro en IndexdDB
+        const transaction = DB.transaction(['citas'], 'readwrite');
+
+        // Habilitar el objectstore
+        const objectStore = transaction.objectStore('citas');
+
+        // Insertar en la BD
+        objectStore.add(citaObj);
+
+        // Si ocupas usar this debe ser declarada como function en lugar de arrowFunction
+        transaction.oncomlete = () => {
+            console.log('Cita Agregada');
+
+            // Mostrar mensaje de que todo esta bien...
+            ui.imprimirAlerta('Se agregó correctamente')
+        }
     }
 
 
