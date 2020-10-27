@@ -1,6 +1,6 @@
 (function(){
     // Variables
-    let DB;
+    // let DB;
 
     document.addEventListener('DOMContentLoaded', () => {
         crearDB();
