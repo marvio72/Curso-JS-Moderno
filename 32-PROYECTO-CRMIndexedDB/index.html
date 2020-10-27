@@ -6,41 +6,41 @@
     <title>CRM - IndexedDB</title>
     <link rel="stylesheet" href="css/tailwind.min.css">
 </head>
-<body class="min-h-100 bg-gray-200">
-    <div class="md:flex min-h-screen md:align-top">
-        <aside class="md:w-2/5 lg:w-2/5 xl:w-1/5 bg-teal-600 px-5 py-10">
-            <h1 class="uppercase text-white tracking-wide text-2xl  font-bold mt-2">CRM - IndexedDB</h1>
+<body class="bg-gray-200 min-h-100">
+    <div class="min-h-screen md:flex md:align-top">
+        <aside class="px-5 py-10 bg-teal-600 md:w-2/5 lg:w-2/5 xl:w-1/5">
+            <h1 class="mt-2 text-2xl font-bold tracking-wide text-white uppercase">CRM - IndexedDB</h1>
             <p class="mt-10 text-white">Administra tus Clientes con el CRM - IndexedDB</p>
             <nav class="mt-8">
                 <a  
                     href="/" 
-                    class="px-3 py-1 text-white block hover:bg-teal-700 hover:text-yellow-400 bg-teal-700"
+                    class="block px-3 py-1 text-white bg-teal-700 hover:bg-teal-700 hover:text-yellow-400"
                 >Clientes</a>
                 <a 
                     href="nuevo-cliente.html" 
-                    class="px-3 py-1 text-white block hover:bg-teal-900 mt-2 hover:text-yellow-400"
+                    class="block px-3 py-1 mt-2 text-white hover:bg-teal-900 hover:text-yellow-400"
                 >Nuevo Cliente</a>
             </nav>
         </aside> <!--sidebar-->
-        <main class="md:w-3/5  xl:w-4/5 px-5 py-10 bg-gray-200">
+        <main class="px-5 py-10 bg-gray-200 md:w-3/5 xl:w-4/5">
             <h2 class="text-3xl font-light text-center">Clientes</h2>
 
             <div class="flex flex-col mt-10">
                 <div class="py-2 overflow-x-auto">
-                  <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+                  <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
                     <table class="min-w-full">
                         <thead class="bg-gray-100 ">
                             <tr>
-                                <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-600 uppercase border-b border-gray-200">
                                         Nombre Cliente
                                 </th>
-                                <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-600 uppercase border-b border-gray-200">
                                         Teléfono
                                 </th>
-                                <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-600 uppercase border-b border-gray-200">
                                         Empresa
                                 </th>
-                                <th class="px-6 py-3 border-b border-gray-200  text-left text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">
+                                <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-600 uppercase border-b border-gray-200">
                                         Acciones
                                 </th>
                             </tr>
