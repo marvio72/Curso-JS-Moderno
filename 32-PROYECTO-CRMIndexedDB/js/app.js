@@ -17,7 +17,6 @@
     function eliminarRegistro(e) {
         if (e.target.classList.contains('eliminar')) {
             const idEliminar = Number(e.target.dataset.cliente);
-            
             const confirmar = confirm('Deseas eliminar este cliente?');
 
             if(confirmar){
@@ -26,16 +25,42 @@
                 objectStore.delete(idEliminar);
 
                 transaction.oncomplete = function() {
-                    console.log('Eliminando...');
+                    imprimirAlerta('Eliminado correctamente');
 
                     e.target.parentElement.parentElement.remove();
                 }
 
                 transaction.onerror = function() {
-                    console.log('Hubo un error');
+                    imprimirAlerta('Hubo un error', 'error');
                 }
             }
         }
+    }
+
+    function imprimirAlerta(mensaje, tipo){
+        const alerta = document.querySelector('.alerta');
+        const encabezado = document.querySelector('.encabezado');
+
+        if (!alerta) {
+            //crear la alerta
+            const divMensaje = document.createElement('div');
+            divMensaje.classList.add('px-4', 'py-3', 'rounded', 'max-w-lg', 'mx-auto', 'mt-6', 'text-center', 'border', 'alerta');
+
+            if (tipo === 'error') {
+                divMensaje.classList.add('bg-red-100', 'border-red-400', 'text-red-700');
+            } else {
+                divMensaje.classList.add('bg-green-100', 'border-green-400', 'text-green-700');
+            }
+
+            divMensaje.textContent = mensaje;
+
+            // encabezado.appendChild(divMensaje);
+            encabezado.before(divMensaje, document.querySelector('main div'));
+
+            setTimeout(() => {
+                divMensaje.remove();
+            }, 3000);
+        } 
     }
 
     // Crear la base de datos de IndexDB
