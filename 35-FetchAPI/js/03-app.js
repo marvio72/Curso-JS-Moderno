@@ -29,7 +29,8 @@ function mostrarHTML(datos) {
             <hr>
         `;
 
-        contenido.appendChild(datosDiv);
     });
+    
+    contenido.appendChild(datosDiv);
    
 }
