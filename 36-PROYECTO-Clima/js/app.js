@@ -3,7 +3,7 @@ const resultado = document.querySelector('#resultado');
 const formulario = document.querySelector('#formulario');
 
 window.addEventListener('load', () => {
-    formulario.addEventListener('click', buscarClima);
+    formulario.addEventListener('submit', buscarClima);
 });
 
 
@@ -15,11 +15,13 @@ function buscarClima(e) {
     const pais = document.querySelector('#pais').value;
 
     if (ciudad === '' || pais === '') {
+        // Hubo un error
         mostrarError('Ambos campos son obligatorios');
         return;
     }
     
     // Consultar la API
+    consultarAPI(ciudad,pais);
 }
 
 function mostrarError(mensaje) {
@@ -44,5 +46,21 @@ function mostrarError(mensaje) {
         }, 2000);
 
     }
+
+}
+
+function consultarAPI(ciudad, pais) {
+    const appId = '44525e7433ab195003ee617dd2f10676';
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appId}`;
+
+    fetch(url)
+        .then( respuesta => respuesta.json())
+        .then( datos => {
+            if (datos.cod === '404') {
+                mostrarError('Ciudad no encontrada');
+            }
+        })
+
 
 }
