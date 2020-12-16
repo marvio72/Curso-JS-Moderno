@@ -1,12 +1,16 @@
-import { obtenerCliente } from './API.js';
+import { editarCliente, obtenerCliente } from './API.js';
+import { mostrarAlerta, validar } from './funciones.js';
 
 (function () {
-  // Comentario
+  // Campos del formulario
   const nombreInput = document.querySelector('#nombre');
   const emailInput = document.querySelector('#email');
   const telefonoInput = document.querySelector('#telefono');
   const empresaInput = document.querySelector('#empresa');
   const idInput = document.querySelector('#id');
+
+  // Formulario
+  const formulario = document.querySelector('#formulario');
 
   document.addEventListener('DOMContentLoaded', async () => {
     const parametrosURL = new URLSearchParams(window.location.search);
@@ -16,6 +20,9 @@ import { obtenerCliente } from './API.js';
     const cliente = await obtenerCliente(idCliente);
 
     mostrarCliente(cliente);
+
+    // Submit al formulario
+    formulario.addEventListener('submit', validarCliente);
   });
 
   function mostrarCliente(cliente) {
@@ -26,5 +33,26 @@ import { obtenerCliente } from './API.js';
     telefonoInput.value = telefono;
     empresaInput.value = empresa;
     idInput.value = id;
+  }
+
+  function validarCliente(e) {
+    e.preventDefault();
+
+    const cliente = {
+      nombre: nombreInput.value,
+      email: emailInput.value,
+      telefono: telefonoInput.value,
+      empresa: empresaInput.value,
+      id: parseInt(idInput.value),
+    };
+
+    if (validar(cliente)) {
+      // Mostrar mensaje
+      mostrarAlerta('Todos los campos son obligatorios');
+      return;
+    }
+
+    // Reescribe el objeto
+    editarCliente(cliente);
   }
 })();
