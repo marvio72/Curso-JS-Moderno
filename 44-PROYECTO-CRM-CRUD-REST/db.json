@@ -1,32 +1,11 @@
 {
   "clientes": [
     {
-      "nombre": "Juan NUEVO!",
-      "email": "correo2@correo.com",
-      "telefono": "12",
-      "empresa": "12212",
-      "id": 26
-    },
-    {
-      "nombre": "Marco Ruvalcaba",
-      "email": "mruvalcaba@correo.com",
-      "telefono": "12323232",
-      "empresa": "234212723",
-      "id": 27
-    },
-    {
-      "nombre": "VIOLETA ELIZABETH",
-      "email": "factura@oversistemas.com",
-      "telefono": "43343434",
-      "empresa": "GOLV7602051I2",
-      "id": 28
-    },
-    {
-      "nombre": "VIOLETA ELIZABETH",
-      "email": "factura@oversistemas.com",
-      "telefono": "3339541057",
-      "empresa": "GOLV7602051I2",
-      "id": 29
+      "nombre": "Marco Rafael",
+      "email": "mr@correo.com",
+      "telefono": "323232323",
+      "empresa": "Oversistemas",
+      "id": 2
     }
   ]
 }
