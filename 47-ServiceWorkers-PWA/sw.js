@@ -1,4 +1,4 @@
-const nombreCache = 'apv-v1';
+const nombreCache = 'apv-v3';
 const archivos = [
   './',
   './index.html',
@@ -25,7 +25,16 @@ self.addEventListener('install', (e) => {
 self.addEventListener('activate', (e) => {
   console.log('Service Worker Activado');
 
-  console.log(e);
+  e.waitUntil(
+    caches.keys().then((keys) => {
+      // console.log(keys);
+      return Promise.all(
+        keys
+          .filter((key) => key !== nombreCache)
+          .map((key) => caches.delete(key)) //Borra los que son diferentes al nombreCache
+      );
+    })
+  );
 });
 
 // Evento fetch para descargar archivo estatico
