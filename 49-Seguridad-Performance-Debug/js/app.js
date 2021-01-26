@@ -151,6 +151,8 @@ function mostrarCotizacionHTML(cotizacion) {
   resultado.appendChild(ultimaActualizacion);
 
   formulario.appendChild(resultado);
+
+  debugger;
 }
 
 function mostrarSpinner() {
