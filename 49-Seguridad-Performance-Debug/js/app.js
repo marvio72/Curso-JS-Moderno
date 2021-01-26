@@ -1,3 +1,7 @@
+/*
+Para Ofuscar el codigo se puede usar la pagina javascript2img.com
+*/
+
 const criptomonedasSelect = document.querySelector('#criptomonedas');
 const monedaSelect = document.querySelector('#moneda');
 const formulario = document.querySelector('#formulario');
@@ -152,7 +156,7 @@ function mostrarCotizacionHTML(cotizacion) {
 
   formulario.appendChild(resultado);
 
-  debugger;
+  //   debugger;
 }
 
 function mostrarSpinner() {
