@@ -21,6 +21,8 @@ describe('Llena los campos para una nueva cita y la elimina', () => {
     cy.get('[data-cy=alerta]').invoke('text').should('equal', 'Se agregó correctamente');
 
     cy.get('[data-cy=alerta]').should('have.class', 'alert-success');
+
+    // cy.screenshot();
   });
 
   it('Eliminar una cita', () => {

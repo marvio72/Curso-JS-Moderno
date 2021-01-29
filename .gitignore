@@ -19272,3 +19272,13 @@ db.json
 52-Testing-Cypress/node_modules/cypress-wait-until/cypress/types/plugin.spec.ts
 52-Testing-Cypress/node_modules/cypress-wait-until/public/index.html
 52-Testing-Cypress/node_modules/cypress-wait-until/src/index.js
+52-Testing-Cypress/cypress/videos/crear_cita.spect.js.mp4
+52-Testing-Cypress/cypress/videos/editar_cita.spect.js.mp4
+52-Testing-Cypress/cypress/videos/eliminar_cita.spect.js.mp4
+52-Testing-Cypress/cypress/videos/primer_test.spect.js.mp4
+52-Testing-Cypress/cypress/videos/validar_formulario.spect.js.mp4
+52-Testing-Cypress/cypress/screenshots/editar_cita.spect.js/Llena los campos para una nueva cita y la edita -- Campos nueva cita (1).png
+52-Testing-Cypress/cypress/screenshots/editar_cita.spect.js/Llena los campos para una nueva cita y la edita -- Campos nueva cita (2).png
+52-Testing-Cypress/cypress/screenshots/editar_cita.spect.js/Llena los campos para una nueva cita y la edita -- Campos nueva cita (3).png
+52-Testing-Cypress/cypress/screenshots/editar_cita.spect.js/Llena los campos para una nueva cita y la edita -- Campos nueva cita.png
+52-Testing-Cypress/cypress/screenshots/editar_cita.spect.js/Llena los campos para una nueva cita y la edita -- Edita la cita (failed).png
