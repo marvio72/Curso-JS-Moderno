@@ -11,6 +11,8 @@ module.exports = {
     contentBase: path.join(__dirname, '/'),
     compress: true,
     port: 9000,
+    publicPath: '/public/js/',
+    watchContentBase: true,
   },
   module: {
     rules: [
