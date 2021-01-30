@@ -1,5 +1,7 @@
 import { datosCita, nuevaCita } from '../funciones';
-import { mascotaInput, propietarioInput, telefonoInput, fechaInput, horaInput, sintomasInput, formulario } from '../selectores';
+import {
+  mascotaInput, propietarioInput, telefonoInput, fechaInput, horaInput, sintomasInput, formulario,
+} from '../selectores';
 
 class App {
   constructor() {
