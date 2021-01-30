@@ -1,0 +1,16 @@
+{
+  "name": "53-webpack-eslint",
+  "version": "1.0.0",
+  "description": "Aprendiendo webpack babel e eslint",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "babel": "babel entrada.js --out-file salida.js --presets=@babel/preset-env"
+  },
+  "author": "Marco Ruvalcaba",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11"
+  }
+}
